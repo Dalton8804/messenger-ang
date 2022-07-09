@@ -2,10 +2,10 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-app.use(express.static(__dirname + '/dist/messenger-ang'));
+app.use(express.static(__dirname + '/dist/messenger-ang/src'));
 
 app.get('/*', function(req,res) {
-    res.sendFile(path.join(__dirname+'/dist/messenger-ang/index.html'));
+    res.sendFile(path.join(__dirname+'/dist/messenger-ang/src/index.html'));
 });
 
 app.listen(process.env.PORT || 8080);
