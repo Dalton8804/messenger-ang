@@ -1,0 +1,21 @@
+
+<input id="authInput" [(ngModel)]="auth.key" placeholder="Input key">
+<h2>Action Selection</h2>
+<ul class="actionButtonsList">
+    <li *ngFor="let action of actions; let indexOfAction = index">
+        <button [class.selected]= "action === selectedAction" type="button" (click)="actionRequest(action)">
+            <span class="id">{{indexOfAction+1}}</span>
+            <span class="name">{{action.name}}</span>
+        </button>
+    </li>
+</ul>
+<div *ngIf="selectedAction">
+    <h2>{{selectedAction.name}} is Active</h2>
+    <div>
+        
+        <div *ngIf="auth.key=='dalton'">
+            <label for="action-name">Action Name: </label>
+            <input id="action-name" [(ngModel)]="selectedAction.name" placeholder="name">
+        </div>  
+    </div>
+</div>
